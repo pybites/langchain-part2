@@ -46,13 +46,13 @@ for message in st.session_state.messages:
 if len(st.session_state.messages) != 0 and st.session_state.messages[-1]["role"] != "assistant":
 
     with st.chat_message("assistant", avatar="bot.png"):
-        # with st.spinner("Thinking..."):
-        qa = create_conversation_chain(db=openai_lc_client)
+        with st.spinner("Thinking..."):
+            qa = create_conversation_chain(db=openai_lc_client)
 
-        full_response = query_qa(qa, prompt)
-        # full_response = query_video(openai_lc_client, prompt)
-        answer = full_response["answer"]
+            full_response = query_qa(qa, prompt)
+            # full_response = query_video(openai_lc_client, prompt)
+            answer = full_response["answer"]
+            st.session_state.messages.append({"role": "assistant", "content": answer})
         st.write(answer)
-        st.session_state.messages.append({"role": "assistant", "content": answer})
 
 
