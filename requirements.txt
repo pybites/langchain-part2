@@ -1,0 +1,10 @@
+langchain
+openai
+youtube-transcript-api
+pytube
+tiktoken
+# pydantic-settings # TODO: solve conflict with chromadb
+chromadb
+python-dotenv
+streamlit
+jupyter
